@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donate Medicine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h2>Donate Medicine</h2>
+
+    <form method="POST">
+        <input type="number" name="discount" placeholder="Enter Discount %" required>
+        <button type="submit">Request Donation</button>
+    </form>
+
+    <a href="{{ url_for('view_medicines') }}">B<button>Back</button></a>
+</body>
+</html>

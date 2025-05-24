@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pharmacist Login</title>
+<script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <h1>Pharmacist Login</h1>
+    
+    <form method="POST">
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br>
+
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br>
+
+        <input type="submit" value="Login">
+    </form>
+
+    <div style="text-align:center; margin-top: 20px;">
+        <a href="{{ url_for('signup') }}"><button>Create New Account</button></a>
+    </div>
+
+</body>
+</html>

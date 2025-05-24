@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Medicines</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+
+    <script>
+        function showDonateForm(medicineId) {
+            let form = document.getElementById('donate-form-' + medicineId);
+            form.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h2>All Medicines</h2>
+
+    <a href="{{ url_for('sort_by_expiry') }}"><button>Sort by Expiry Date</button></a><br><br>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Name</th>
+            <th>Count</th>
+            <th>Expiry Date</th>
+            <th>Discount Offer</th>
+            <th>Donate</th>
+        </tr>
+        {% for med in medicines %}
+        <tr>
+            <td>{{ med.name }}</td>
+            <td>{{ med.count }}</td>
+            <td>{{ med.expiry_date }}</td>
+            <td>No Offer</td>
+            <td>
+                <button onclick="showDonateForm({{ med.id }})">Donate</button>
+                <form method="POST" action="{{ url_for('donate', id=med.id) }}" id="donate-form-{{ med.id }}" style="display:none;">
+                    <input type="number" name="discount" placeholder="Enter Discount %" required>
+                    <button type="submit">Request</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br>
+    <a href="{{ url_for('home_pharmacist') }}"><button>Back</button></a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pharmacist Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+
+</head>
+<body>
+    <h1>Welcome, Pharmacist!</h1>
+    <a href="{{ url_for('add_medicine') }}"><button>Add Medicine</button></a><br><br>
+    <a href="{{ url_for('view_medicines') }}"><button>View Medicines</button></a><br><br>
+
+    {% if alert_medicine %}
+        <div style="background-color: #ffcccc; padding: 10px;">
+            ⚠️ Alert! Medicine "{{ alert_medicine.name }}" is expiring on {{ alert_medicine.expiry_date }}!
+        </div>
+    {% endif %}
+    <br><br>
+    <a href="{{ url_for('logout') }}"><button>Logout</button></a>
+</body>
+</html>

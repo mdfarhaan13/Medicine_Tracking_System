@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Medicine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+
+</head>
+<body>
+    <h2>Edit Medicine Details</h2>
+    <form method="POST">
+        <label>Medicine Name:</label><br>
+        <input type="text" name="name" value="{{ medicine.name }}" required><br><br>
+
+        <label>Count:</label><br>
+        <input type="number" name="count" value="{{ medicine.count }}" required><br><br>
+
+        <label>Expiry Date:</label><br>
+        <input type="date" name="expiry_date" value="{{ medicine.expiry_date }}" required><br><br>
+
+        <input type="submit" value="Update Medicine">
+    </form>
+
+    <a href="{{ url_for('home_admin') }}"><button>Back</button></a>
+</body>
+</html>

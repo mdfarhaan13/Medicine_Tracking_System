@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pharmacy Expiry Tracker</title>
+<script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <h1>Welcome to Pharmacy Medicine Expiry Tracker</h1>
+
+    <div class="grid-container">
+        <div style="text-align:center;">
+            <a href="{{ url_for('signup') }}"><button>Pharmacist Sign Up</button></a><br><br>
+            <a href="{{ url_for('login_pharmacist') }}"><button>Pharmacist Login</button></a>
+        </div>
+        <div style="text-align:center;">
+            <a href="{{ url_for('login_admin') }}"><button>Admin Login</button></a>
+        </div>
+    </div>
+
+</body>
+</html>
